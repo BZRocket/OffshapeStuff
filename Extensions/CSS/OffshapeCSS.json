@@ -1,0 +1,199 @@
+[
+  {
+    "settings": {
+      "disableAll": false,
+      "exposeIframes": false,
+      "exposeIframes.sites": "",
+      "exposeIframes.sitesOnly": false,
+      "exposeStyleName": false,
+      "keepAlive": 0,
+      "keepAliveIdle": false,
+      "newStyleAsUsercss": false,
+      "openEditInWindow": false,
+      "openEditInWindow.popup": false,
+      "patchCsp": false,
+      "patchCsp.sites": "",
+      "patchCsp.sitesOnly": false,
+      "show-badge": true,
+      "styleViaASS": false,
+      "styleViaASS.sites": "",
+      "styleViaASS.sitesOnly": false,
+      "styleViaXhr": false,
+      "styleViaXhr.sites": "",
+      "styleViaXhr.sitesOnly": false,
+      "urlInstaller": true,
+      "windowPosition": {},
+      "compactWidth": 850,
+      "config.autosave": true,
+      "schemeSwitcher.enabled": "system",
+      "schemeSwitcher.nightStart": "18:00",
+      "schemeSwitcher.nightEnd": "06:00",
+      "popup.enabledFirst": true,
+      "popup.stylesFirst": true,
+      "popup.autoResort": false,
+      "popup.borders": false,
+      "popup.findSort": "w",
+      "manage.onlyEnabled": false,
+      "manage.onlyLocal": false,
+      "manage.onlyUsercss": false,
+      "manage.onlyEnabled.invert": false,
+      "manage.onlyLocal.invert": false,
+      "manage.onlyUsercss.invert": false,
+      "manage.actions.expanded": false,
+      "manage.backup.expanded": true,
+      "manage.filters.expanded": true,
+      "manage.links.expanded": true,
+      "manage.minColumnWidth": 750,
+      "manage.newUI": true,
+      "manage.newUI.favicons": true,
+      "manage.newUI.faviconsGray": false,
+      "manage.newUI.targets": 3,
+      "manage.newUI.sort": "title,asc",
+      "manage.searchMode": "meta",
+      "editor.options": {},
+      "editor.toc.expanded": true,
+      "editor.options.expanded": true,
+      "editor.options.style.expanded": true,
+      "editor.general.expanded": true,
+      "editor.lint.expanded": true,
+      "editor.publish.expanded": true,
+      "editor.lineWrapping": true,
+      "editor.smartIndent": true,
+      "editor.indentWithTabs": false,
+      "editor.tabSize": 4,
+      "editor.keyMap": "default",
+      "editor.theme": "default",
+      "editor.beautify": {
+        "selector_separator_newline": true,
+        "newline_before_open_brace": false,
+        "newline_after_open_brace": true,
+        "newline_between_properties": true,
+        "newline_before_close_brace": true,
+        "newline_between_rules": false,
+        "preserve_newlines": true,
+        "end_with_newline": false,
+        "indent_conditional": true,
+        "indent_mozdoc": true,
+        "space_around_combinator": true,
+        "space_around_cmp": false
+      },
+      "editor.beautify.hotkey": "",
+      "editor.toggle.hotkey": "Alt-Enter",
+      "editor.toggle.save": false,
+      "editor.linter": "csslint",
+      "editor.linter.on": true,
+      "editor.lintReportDelay": 500,
+      "editor.matchHighlight": "token",
+      "editor.autoCloseBrackets": true,
+      "editor.autocompleteOnTyping": false,
+      "editor.contextDelete": false,
+      "editor.selectByTokens": true,
+      "editor.arrowKeysTraverse": true,
+      "editor.appliesToLineWidget": true,
+      "editor.autosaveDraft": 10,
+      "editor.livePreview": true,
+      "editor.livePreview.delay": 0.2,
+      "editor.targetsFirst": true,
+      "editor.colorpicker": true,
+      "editor.colorpicker.hexUppercase": 0,
+      "editor.colorpicker.hotkey": "",
+      "editor.colorpicker.color": "",
+      "editor.colorpicker.maxHeight": 300,
+      "hotkey._execute_browser_action": "",
+      "hotkey.openManage": "",
+      "hotkey.styleDisableAll": "",
+      "hotkey.toggleTab": "",
+      "sync.enabled": "none",
+      "iconset": -1,
+      "badgeDisabled": "#8B0000",
+      "badgeNormal": "#006666",
+      "headerWidth.edit": 280,
+      "headerWidth.install": 280,
+      "headerWidth.manage": 280,
+      "popup.search.globals": false,
+      "popup.sidePanel": false,
+      "popup.sidePanel.config": -1,
+      "popup.sidePanel.editor": false,
+      "popup.sidePanel.finder": false,
+      "popup.sidePanel.manager": false,
+      "popup.sidePanel.options": true,
+      "popup.toggler.expanded": false,
+      "popupWidth": 246,
+      "popupWidthMax": 280,
+      "updateInterval": 24,
+      "updateOnlyEnabled": false
+    },
+    "order": {
+      "main": [],
+      "prio": []
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1792467565170,
+    "name": "Invert Drawings",
+    "sections": [
+      {
+        "code": "/* invert the page content, not the root */\n  body {\n    filter: invert(1) hue-rotate(180deg) !important;\n  }\n\n  /* make everything that wraps the drawing transparent (the grey area) */\n  :has([id^=\"documentWindow\"]) {\n    background: transparent !important;\n  }\n\n  /* background image: outside the filtered body, so no counter-filter needed */\n  html::before {\n    content: \"\";\n    position: fixed;\n    inset: 0;\n    z-index: -1;\n    pointer-events: none;\n    background: url(\"https://i.postimg.cc/yYDvt4P4/Background.jpg\") center / cover no-repeat;\n  }\n\n  /* keep your existing canvas rule exactly as it is */\n  [id^=\"documentWindow\"] canvas {\n    filter: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='k' color-interpolation-filters='sRGB'%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 -0.3353 0 1 0 0 -0.3353 0 0 1 0 -0.3353 0 0 0 1 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1'/%3E%3CfeFuncG type='discrete' tableValues='1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1'/%3E%3CfeFuncB type='discrete' tableValues='1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1'/%3E%3C/feComponentTransfer%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0' result='a'/%3E%3CfeComposite in='SourceGraphic' in2='a' operator='in'/%3E%3C/filter%3E%3C/svg%3E#k\") !important;\n  }",
+        "regexps": [
+          "https://production-drawing-.*\\.onshape\\.com/.*"
+        ]
+      }
+    ],
+    "_rev": 1792642741426,
+    "updateDate": 1792642741426,
+    "_id": "c0981e04-e43f-4140-9400-423edb1ea437",
+    "id": 1
+  },
+  {
+    "enabled": true,
+    "installDate": 1792553532460,
+    "name": "New Main Logo",
+    "sections": [
+      {
+        "code": "img.navbar-onshape-logo.navbar-onshape-logo {\n  content: url(\"https://raw.githubusercontent.com/BZRocket/OffshapeStuff/refs/heads/main/OffshapeLogoText.png\") !important;\n  filter: none !important;\n  -webkit-filter: none !important;\n  width: auto !important;\n  height: 28px !important;\n  max-width: 120px !important;\n  object-fit: contain !important;\n}",
+        "urlPrefixes": [
+          "https://cad.onshape.com/"
+        ]
+      }
+    ],
+    "_rev": 1792642836200,
+    "updateDate": 1792642836200,
+    "_id": "ae7cb8f2-55b6-42d0-ab0a-6ee6a379d318",
+    "id": 2
+  },
+  {
+    "enabled": true,
+    "installDate": 1792557313284,
+    "name": "Gif Button CSS",
+    "sections": [
+      {
+        "code": "  #osgif-btn {\n    position: fixed;\n    z-index: 2147482000;\n    width: 24px;           /* size of the button; adjust to fit your PNG */\n    height: 24px;\n    padding: 0;\n    border: none;\n    background: transparent url(\"https://raw.githubusercontent.com/BZRocket/OffshapeStuff/refs/heads/main/OffshapeGrey.png\") center / contain no-repeat;\n    font-size: 0;          /* hides the \"▶ GIF\" text the script puts in the button */\n    color: transparent;\n    cursor: pointer;\n    transition: filter 0.15s, transform 0.15s;\n  }\n  #osgif-btn:hover {\n    filter: brightness(1.3);\n    transform: scale(1.08);\n  }\n\n  #osgif-backdrop {\n    position: fixed;\n    inset: 0;\n    z-index: 2147483647;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background: rgba(0, 0, 0, 0.75);\n  }\n\n   #osgif-panel {\n    background: #000 url(\"https://raw.githubusercontent.com/BZRocket/OffshapeStuff/refs/heads/main/Offshape.gif\") center / 100% 100% no-repeat;\n    border-radius: 12px;\n    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.8);\n    overflow: hidden;\n  }\n\n      .osgif-create {\n    transform: translateX(-10px) !important;   /* how far Create shifts left; adjust to taste */\n  }",
+        "urlPrefixes": [
+          "https://cad.onshape.com/documents"
+        ]
+      }
+    ],
+    "_rev": 1792642875121,
+    "updateDate": 1792642875121,
+    "_id": "abdadbc7-c453-4ff7-9101-8a6b4d0800ca",
+    "id": 3
+  },
+  {
+    "enabled": true,
+    "installDate": 1792638371966,
+    "name": "BigBrain Icon",
+    "sections": [
+      {
+        "code": "/* swap the Learning Center icon for your image */\n  button.nav-invite[ng-click*=\"goToLearningCenter\"] {\n    background-image: url(\"https://raw.githubusercontent.com/BZRocket/OffshapeStuff/refs/heads/main/bigbrain.jpg\") !important;\n    background-repeat: no-repeat !important;\n    background-position: center !important;\n    background-size: 24px auto !important;   /* image width; adjust to taste */\n  }\n\n  /* hide the original icon but keep its space, so the button doesn't resize */\n  button.nav-invite[ng-click*=\"goToLearningCenter\"] svg {\n    visibility: hidden !important;\n  }",
+        "domains": [
+          "cad.onshape.com"
+        ]
+      }
+    ],
+    "_rev": 1792638371966,
+    "updateDate": 1792638371966,
+    "_id": "beff272a-29a8-42a8-b137-a43f142ff959",
+    "id": 4
+  }
+]
